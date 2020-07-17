@@ -24,7 +24,7 @@ func main() {
 		// 遍历所有图片
 		for _, file := range files {
 			// 逐个存
-			if err := c.SaveUploadedFile(file, "gin_project/upload_file/"+file.Filename); err != nil {
+			if err := c.SaveUploadedFile(file, "gin_stu/upload_file/"+file.Filename); err != nil {
 				c.String(http.StatusBadRequest, fmt.Sprintf("upload err %s", err.Error()))
 				return
 			}

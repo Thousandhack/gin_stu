@@ -28,7 +28,7 @@ func main() {
 			})
 			return
 		}
-		c.SaveUploadedFile(headers, "gin_project/upload_file/"+headers.Filename)
+		c.SaveUploadedFile(headers, "gin_stu/upload_file/"+headers.Filename)
 		c.String(http.StatusOK, headers.Filename)
 	})
 	r.Run()
