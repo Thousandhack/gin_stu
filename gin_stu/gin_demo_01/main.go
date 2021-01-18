@@ -11,6 +11,7 @@ func main(){
 	r := gin.Default()
 	// 2.绑定路由规则，指定的函数
 	// *gin.Context   封装了request和response
+	// Context 是一个结构体
 	r.GET("/", func(context *gin.Context) {
 		context.String(http.StatusOK,"hello, world!")
 	})
