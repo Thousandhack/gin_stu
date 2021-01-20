@@ -1,11 +1,9 @@
 package main
 
 import (
-"fmt"
-"github.com/gin-gonic/gin"
+	"fmt"
+	"github.com/gin-gonic/gin"
 )
-
-// gin的helloWorld
 
 func main() {
 	// 1.创建路由
@@ -15,13 +13,13 @@ func main() {
 	v1 := r.Group("/v1")
 	// {} 是书写规范
 	{
-		v1.GET("/login", login)
-		v1.GET("submit", submit)
+		v1.GET("/login", login)  // http://localhost:8000/v1/login
+		v1.GET("submit", submit) // http://localhost:8000/v1/submit
 	}
 	v2 := r.Group("/v2")
 	{
 		v2.POST("/login", login)
-		v2.POST("/submit", submit)
+		v2.POST("/submit", submitTwo)
 	}
 	r.Run(":8000")
 }
@@ -36,3 +34,7 @@ func submit(c *gin.Context) {
 	c.String(200, fmt.Sprintf("hello %s\n", name))
 }
 
+func submitTwo(c *gin.Context) {
+	name := c.DefaultQuery("name", "two")
+	c.String(200, fmt.Sprintf("hello %s\n", name))
+}
