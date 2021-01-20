@@ -24,13 +24,13 @@ func main() {
 		// 遍历所有图片
 		for _, file := range files {
 			// 逐个存
-			if err := c.SaveUploadedFile(file, "gin_stu/upload_file/"+file.Filename); err != nil {
+			if err := c.SaveUploadedFile(file, "gin_project/upload_file/"+file.Filename); err != nil {
 				c.String(http.StatusBadRequest, fmt.Sprintf("upload err %s", err.Error()))
 				return
 			}
 		}
 		c.String(200, fmt.Sprintf("upload ok %d files", len(files)))
 	})
-	//默认端口号是8080
+	// 默认端口号是8080
 	r.Run(":8000")
 }
